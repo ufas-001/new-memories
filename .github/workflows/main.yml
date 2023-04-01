@@ -9,10 +9,11 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v2
-        with:
-          script: |
-            cd client
-            npm install
-            npm run build
-            echo "Build file excecuted"
-
+        with: 
+          node-version: "12.x"
+      - name: Change Working directory
+        run: cd client
+      - name: install dependencies
+        run:  npm install
+      - name: run build file
+        run: npm run build
