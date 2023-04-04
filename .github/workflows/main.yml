@@ -29,6 +29,5 @@ jobs:
       - name: Update the file in the server folder
         run: |
           cd /var/www
-          cd 
-          cd work/new-memories/client
+          sudo cd /root --password "Kaosarat95$"
           ls
