@@ -27,7 +27,7 @@ jobs:
           npm run build
       - name: Update the file in the server folder
         run: |
-          cd /var/www
+          cd /var/www -s
           sudo rm -rf build
-          sudo cd /root
+          cd /root -s
           ls
