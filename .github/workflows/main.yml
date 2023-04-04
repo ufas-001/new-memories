@@ -30,7 +30,7 @@ jobs:
           cd /var/www
           sudo rm -rf build
           cd ~
-          cd new-memories/client
+          cd client
           sudo cp -r build /var/www
           sudo sytemctl reload nginx
           echo "Done"
