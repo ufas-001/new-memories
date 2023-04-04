@@ -23,7 +23,7 @@ jobs:
       - name: Install dependency on the client side
         run: |
           cd client
-          npm Install
+          npm install
           npm run Build
       - name: Update the file in the server folder
         run: |
