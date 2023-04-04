@@ -24,7 +24,7 @@ jobs:
         run: |
           cd client
           npm install
-          npm run Build
+          npm run build
       - name: Update the file in the server folder
         run: |
           cd /var/www
