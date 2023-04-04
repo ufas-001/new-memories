@@ -10,26 +10,11 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
       - name: ssh in ec2 remote server
+        env:
+          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
+          HOSTNAME:  ${{ secrets.HOSTNAME }}
+          USER_NAME:  ${{ secrets.USER_NAME }}
         run:  |
-          ssh -i "MIIEowIBAAKCAQEAkteN50duZ+KcFyuRSyeYSl9ghm6mHj2BFawpVrlLE5TOKb65
-          arAXyo2/CXXaog+s1L+NDTLUtjnD98hA/KLrjP7GBqFobkiPBGmatelaJxpQKaAS
-          MwshwhiUuqIe3n6st7Iz4DthYHM5kQh8G5ySLCNTEjrND4z2cUaRoL69x4HFyILO
-          fne7lz3/sEY3azbRvZvCnjtuX0UfzUFQl+LmrRuQyqgfSeYvcVElAYaoHR5gnTID
-          gOhwBKN7R/OYiUbHrgizSJ1FA5iZdCkz3dXmiiTslQbj7rFmWL4yvuNUdFAz5J4L
-          8yQpxg5tXNmKBiUKduLoVZZBBbB/45wPBTgRjQIDAQABAoIBAH3TQOAmQD+6WSAt
-          j/GDOya3dYGb/LI654qHnGCYo/FieAojSMRXoftJ3KGhoDdwERu4C4h8vvJqqzZ+
-          HNmeTRLjGRKDanXdrNcOGqi4DS0mifwxEoc0ibfE0mTeGG90wlEh3PvORhGcin5x
-          c89BKauylTMwuZgSpPXJj23bI8l4Y/QVdyZYv1Diz0NsFwmIRtTmCL2gD44TExIU
-          xItAi4ZY8z9M1sjXApHS8JhvRkMF7pJipDgiTTbip9uSDekSd+APFowYo/uED0mB
-          tHBwjGnqLtdJhz2SmrctjJjxpDQi327xjgf/yWM5aWuY4T+xbl8B+8BEvedZxxev
-          1IBET20CgYEA5R0kSZbAwuYKzNOE0lPBvXA6f78iPUMmWysaz3sXht3wdYntWOs7
-          npJqcxyPJxvg7kqygFArIBdt4HCAG4Q9dSHkwC7JopW3cBofFEOn2BR94jAV3WlD
-          +A1TPnnsg1Y3pyi4XCpLYC6L7C4/OB2V1RythoSikjjl59oiHPqUuwMCgYEApBLd
-          6gDNK0bQctUw6Ay05Oe7V3y7mO/e/xtBlZzVMKaI9QqG4PwRdjsQyZyAzXvikAnk
-          O6g4I4rxmsuEWT4p5hcY6Q2DT41iWGv21NzReumKK/rzhW3PUBS0JPCYnJpa7PVw
-          6sCxNkrxkrlDCBsaQ96iuO0ga6xnVPV92MlElC8CgYBjRj5L+Jtrl9wEJn691/bx
-          y6g9ZCdE3kzHYiUK0+48zPv9IheK2NqLeivP1wccThMnjYxM1u/oxt4gSv7nbWRn
-          1ZjVwTAzV6YVV+wxjqMymKZ3FJjUyGDgIX35a0EVI42Xy6gen2Drux975goUmZUr
-          s3JpAB2lOCw+SyFO5zD82wKBgQCAuzzaSN6xQdJzBspkhvO3VgorTnZyPGIejmga
-          1v5+OWvjtuq0w5F/zkARr3Vvw++zS8+C7y181ZtS9LNWwetl2GF3GV8Zn7i135++
-          y7KgWXRLpY5D9jBeiJ//C7bxyDnnCXwa9C0WiB6aHDl3tqwY7CmIJqT1VkOM6UBg" ubuntu@ec2-13-53-184-254.eu-north-1.compute.amazonaws.com
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} -y
+
