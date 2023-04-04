@@ -17,19 +17,17 @@ jobs:
         run:  |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} -y
-      - name: Grant root privileges to runner
-        run: |
-              sudo chmod 777 / -R
-      - name: Update the repository with the remote repository
-        run: |
-          git pull --rebase origin
-      - name: Install dependency on the client side
-        run: |
-          cd client
-          npm install
-          npm run build
+      # - name: Update the repository with the remote repository
+      #   run: |
+      #     git pull --rebase origin
+      # - name: Install dependency on the client side
+      #   run: |
+      #     cd client
+      #     npm install
+      #     npm run build
       - name: Update the file in the server folder
         run: |
           cd /var/www
-          cd root
+          cd ~
+          cd work
           ls
