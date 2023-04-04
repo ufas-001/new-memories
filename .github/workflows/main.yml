@@ -29,5 +29,5 @@ jobs:
         run: |
           cd /var/www
           sudo rm -rf build
-          cd root
+          cd /
           ls
