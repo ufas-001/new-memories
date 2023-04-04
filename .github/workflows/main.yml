@@ -15,4 +15,8 @@ jobs:
           HOSTNAME:  ${{ secrets.HOSTNAME }}
           USER_NAME:  ${{ secrets.USER_NAME }}
         run:  |
-          echo "it works"
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -0 StrictHostKeyChecking=no -i private_key "${USER_NAME}@${HOSTNAME}"
+      - name: check in to the memories directory
+        run:  |
+          cd new-memories
