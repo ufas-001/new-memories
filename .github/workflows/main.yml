@@ -30,4 +30,5 @@ jobs:
           cd /var/www
           sudo rm -rf build
           cd /
+          cd root
           ls
