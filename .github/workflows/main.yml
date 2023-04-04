@@ -28,5 +28,5 @@ jobs:
       - name: Update the file in the server folder
         run: |
           cd /var/www
-          cd /root/client
+          cd sudo /root/client
           ls
