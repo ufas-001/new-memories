@@ -19,7 +19,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} -y
       - name: Grant root privileges to runner
         run: |
-              sudo chown root:root / -R
               sudo chmod 777 / -R
       - name: Update the repository with the remote repository
         run: |
