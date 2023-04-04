@@ -19,19 +19,18 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} -y
       - name: Update the repository with the remote repository
         run: |
-          cd new-memories
-          git pull --rebase origin
-      - name: Install dependency on the client side
-        run: |
-          cd client
-          npm Install
-          npm run Build
-      - name: Update the file in the server folder
-        run: |
-          cd /var/www
-          sudo rm -rf build
-          cd ~
-          cd new-memories/client
-          sudo cp -r build /var/www
-          sudo sytemctl reload nginx
-          echo "Done"
+          ls
+      # - name: Install dependency on the client side
+      #   run: |
+      #     cd client
+      #     npm Install
+      #     npm run Build
+      # - name: Update the file in the server folder
+      #   run: |
+      #     cd /var/www
+      #     sudo rm -rf build
+      #     cd ~
+      #     cd new-memories/client
+      #     sudo cp -r build /var/www
+      #     sudo sytemctl reload nginx
+      #     echo "Done"
