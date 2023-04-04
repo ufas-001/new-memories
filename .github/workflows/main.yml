@@ -3,6 +3,7 @@ on:
   push:
     branches: 
       - master
+  permissions: read-all
 jobs:
   Deploy-on-ec2-instance:
     runs-on: ubuntu-latest
