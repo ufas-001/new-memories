@@ -29,5 +29,5 @@ jobs:
       - name: Update the file in the server folder
         run: |
           cd /var/www
-          cd -s /root/client
+          cd /home/root
           ls
