@@ -30,5 +30,6 @@ jobs:
         run: |
           cd /var/www
           cd /
-          sudo -s  
+          sudo -s
+          cd root
           ls
