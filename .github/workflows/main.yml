@@ -29,5 +29,5 @@ jobs:
       - name: Update the file in the server folder
         run: |
           cd /var/www
-          cd /home/ruuner/work
+          cd 
           ls
