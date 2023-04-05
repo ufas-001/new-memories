@@ -47,4 +47,5 @@ jobs:
         key: ${{secrets.AWS_PRIVATE_KEY}}
         username: ${{ secrets.USER_NAME }}
         script: |
+          cd client
           ls
