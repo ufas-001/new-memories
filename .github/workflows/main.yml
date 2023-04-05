@@ -47,5 +47,13 @@ jobs:
         key: ${{secrets.AWS_PRIVATE_KEY}}
         username: ${{ secrets.USER_NAME }}
         script: |
-          cd new-memories
-          ls
+          cd new-memories/client
+          npm install
+          npm run build
+          cd /var/www
+          rm -rf build
+          cd /
+          cd new-memories/client
+          cp -r build /var/www
+          cd /var/www/build
+
