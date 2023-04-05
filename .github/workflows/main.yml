@@ -17,7 +17,9 @@ jobs:
 #       Running Script
 
         script: |
-          cd new-memories/client
+          cd new-memories
+          git pull --rebase origin
+          cd client
           npm install
           npm run build
           cd /var/www
