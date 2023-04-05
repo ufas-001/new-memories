@@ -18,6 +18,8 @@ jobs:
 
         script: |
           cd new-memories
+          git add .
+          git commit -m "stash changes"
           git pull --rebase origin master
           cd client
           npm install
