@@ -52,7 +52,11 @@ jobs:
           npm run build
           cd /var/www
           sudo rm -rf build
-          cd /
-          ls
-
-
+          cd
+          cd new-memories/client
+          sudo mv  build /var/www/build
+          cd
+          sudo systemctl reload nginx
+          cd new-memories/server
+          npm install
+          npm run start
