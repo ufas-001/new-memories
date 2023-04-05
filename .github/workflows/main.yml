@@ -59,3 +59,4 @@ jobs:
           cd
           cd new-memories/server
           npm install
+          npm run start
