@@ -37,7 +37,7 @@ on:
   push:
     branches: [ master ]
 jobs:
-  Deploy on ec2 instance:
+  Deploy-on-ec2-instance:
     runs-on: ubuntu-latest
     steps:
     - name: SSH Remote Commands
