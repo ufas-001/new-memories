@@ -18,7 +18,7 @@ jobs:
 
         script: |
           cd new-memories
-          git pull --rebase origin
+          git pull --rebase origin master
           cd client
           npm install
           npm run build
