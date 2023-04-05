@@ -8,8 +8,6 @@ jobs:
   Deploy-on-ec2-instance:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        uses: actions/checkout@v2
       - name: Grant root permissions
         uses: actions/setup-root@v2
       - name: ssh in ec2 remote server
