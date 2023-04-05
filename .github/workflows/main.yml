@@ -53,10 +53,6 @@ jobs:
           cd /var/www
           sudo rm -rf build
           cd /
-          cd new-memories/client
-          cp -r build /var/www
-          sudo systemctl reload nginx
-          cd /
           ls
 
 
