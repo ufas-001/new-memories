@@ -1,38 +1,50 @@
-name: Build frontend
+# name: Build frontend
+# on:
+#   push:
+#     branches: 
+#       - master
+# permissions: read-all
+# jobs:
+#   Deploy-on-ec2-instance:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: checkout code
+#         uses: actions/checkout@v3
+#       - name: ssh in ec2 remote server
+#         env:
+#           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
+#           HOSTNAME:  ${{ secrets.HOSTNAME }}
+#           USER_NAME:  ${{ secrets.USER_NAME }}
+#         run:  |
+#           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+#           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} -y
+#       # - name: Update the repository with the remote repository
+#       #   run: |
+#       #     git pull --rebase origin
+#       - name: Install dependency on the client side
+#         run: |
+#           cd /etc/nginx/sites-enabled
+#           cat default
+#       # - name: Grant root privileges to runner
+#       #   run: |
+#       #     secho "Kaosarat95$"udo -s chmod 777 / -R 
+#       # - name: Update the file in the server folder
+#       #   run: |
+#       #     cd /var/www
+#       #     cd 
+#       #     ls
 on:
   push:
-    branches: 
-      - master
-permissions: read-all
+    branches: [ master ]
 jobs:
-  Deploy-on-ec2-instance:
+  Deploy on ec2 instance:
     runs-on: ubuntu-latest
     steps:
-      - name: Grant root permissions
-        uses: actions/setup-root@v2
-      - name: ssh in ec2 remote server
-        env:
-          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
-          HOSTNAME:  ${{ secrets.HOSTNAME }}
-          USER_NAME:  ${{ secrets.USER_NAME }}
-        run:  |
-          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} -y
-      # - name: Update the repository with the remote repository
-      #   run: |
-      #     git pull --rebase origin
-      - name: Install dependency on the client side
-        run: |
-          cd /etc/nginx/sites-enabled
-          cd / 
-          cd root
-          ls 
-      # - name: Grant root privileges to runner
-      #   run: |
-      #     secho "Kaosarat95$"udo -s chmod 777 / -R 
-      # - name: Update the file in the server folder
-      #   run: |
-      #     cd /var/www
-      #     cd 
-      #     ls
-          
+    - name: SSH Remote Commands
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{secrets.HOSTNAME}}
+        key: ${{secrets.AWS_PRIVATE_KEY}}
+        username: ${{ secrets.USER_NAME }}
+        script: |
+          ls
