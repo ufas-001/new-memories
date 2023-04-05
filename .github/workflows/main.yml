@@ -33,5 +33,4 @@ jobs:
           cd
           cd new-memories/server
           npm install
-          kill $(lsof -t -i:5000)
           npm run start
