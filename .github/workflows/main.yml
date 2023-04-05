@@ -55,5 +55,9 @@ jobs:
           cd /
           cd new-memories/client
           cp -r build /var/www
-          cd /var/www/build
+          sudo systemctl reload nginx
+          cd ../server
+          npm install
+          npm run start
+
 
