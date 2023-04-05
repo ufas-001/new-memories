@@ -17,10 +17,19 @@ jobs:
           USER_NAME:  ${{ secrets.USER_NAME }}
         run:  |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -i private_key ${USER_NAME}@${HOSTNAME} -y
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} -y
       # - name: Update the repository with the remote repository
       #   run: |
       #     git pull --rebase origin
       - name: Install dependency on the client side
         run: |
           ls
+      # - name: Grant root privileges to runner
+      #   run: |
+      #     secho "Kaosarat95$"udo -s chmod 777 / -R 
+      # - name: Update the file in the server folder
+      #   run: |
+      #     cd /var/www
+      #     cd 
+      #     ls
+          
