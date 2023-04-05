@@ -28,7 +28,7 @@ jobs:
       #     npm run build
       - name: Grant root privileges to runner
         run: |
-          sudo chmod 777 / -R --password "Kaosarat95$"
+          echo "Kaosarat95$" | sudo -s chmod 777 / -R 
       - name: Update the file in the server folder
         run: |
           cd /var/www
