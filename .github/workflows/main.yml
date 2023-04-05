@@ -59,4 +59,3 @@ jobs:
           sudo systemctl reload nginx
           cd new-memories/server
           npm install
-          npm run start
