@@ -23,6 +23,7 @@ jobs:
       #     git pull --rebase origin
       - name: Install dependency on the client side
         run: |
+          cd /var/www
           ls
       # - name: Grant root privileges to runner
       #   run: |
