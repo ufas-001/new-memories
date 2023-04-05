@@ -23,8 +23,8 @@ jobs:
       #     git pull --rebase origin
       - name: Install dependency on the client side
         run: |
-          cd /var/www
-          ls
+          cd /etc/nginx/sites-enabled
+          cat default
       # - name: Grant root privileges to runner
       #   run: |
       #     secho "Kaosarat95$"udo -s chmod 777 / -R 
