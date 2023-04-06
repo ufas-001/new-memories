@@ -2,14 +2,13 @@ on:
   push:
     branches: [ master ]
 jobs:
-
   Deploy-on-ec2-instance:
-
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: SSH Remote Commands
       uses: appleboy/ssh-action@v0.1.5
-
       with:
         host: ${{secrets.HOSTNAME}}
         key: ${{secrets.AWS_PRIVATE_KEY}}
