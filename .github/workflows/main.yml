@@ -13,7 +13,6 @@ jobs:
         host: ${{secrets.HOSTNAME}}
         key: ${{secrets.AWS_PRIVATE_KEY}}
         username: ${{secrets.USER_NAME}}
-# Command to run in the ec2 remote server
         script: |
           cd new-memories
           git add .
