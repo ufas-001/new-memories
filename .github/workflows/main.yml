@@ -14,4 +14,20 @@ jobs:
         key: ${{secrets.AWS_PRIVATE_KEY}}
         username: ${{secrets.USER_NAME}}
         script: |
-         ls
+          cd new-memories
+          git add .
+          git commit -m "stash changes"
+          git pull --rebase origin master
+          cd client
+          npm install
+          npm run build
+          cd /var/www
+          sudo rm -rf build
+          cd
+          cd new-memories/client
+          sudo mv  build /var/www/build
+          sudo systemctl reload nginx
+          cd
+          cd new-memories/server
+          npm install
+          npm run start
