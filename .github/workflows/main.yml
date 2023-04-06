@@ -31,3 +31,4 @@ jobs:
           cd new-memories/server
           npm install
           npm run start
+# I have kill the PID
