@@ -14,7 +14,7 @@ jobs:
         host: ${{secrets.HOSTNAME}}
         key: ${{secrets.AWS_PRIVATE_KEY}}
         username: ${{ secrets.USER_NAME }}
-#       Running Script
+#       Running Script .....
 
         script: |
           cd new-memories
